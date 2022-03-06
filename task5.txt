@@ -1,0 +1,370 @@
+1.
+a. print odd number in array using anonymous function
+var odd=function(arr){
+        for(i=0;i<arr.length;i++){
+            if(arr[i]%2!=0)
+                console.log(arr[i]);
+            }
+    
+        
+        }
+        console.log(odd([1,2,3,4,5,6,7]));
+output: 
+1
+3
+5
+7 
+
+b. Convert all the strings to title caps in a string array
+
+var odd=function(arr){
+        for(i=0;i<arr.length;i++){
+            let smallsplitted= arr[i].split("");
+            smallsplitted[0]=smallsplitted[0].toUpperCase();
+            arr[i]=smallsplitted.join("");
+
+            
+            }
+    
+        return arr[i];
+        }
+        console.log(odd(["rajivee","kaavya","guvi"]));
+output:
+Rajivee
+Kaavya
+Guvi
+c. Sum of all numbers in an array
+
+var sum=function(arr){
+    let sum=0;
+        for(i=0;i<arr.length;i++){
+            sum+=arr[i];
+            
+            }
+            return sum;
+        
+        }
+        console.log(sum([1,2,3,4,5]));
+
+output:
+15
+
+d. Return all the prime numbers in an array
+
+var prime=function(arr){
+    let flag=0;
+    let res=[];
+    for(var x of arr){
+        var repeat=0;
+            for(var i=2;i<=x/2;i++){
+                
+            if(x%i==0){
+                repeat=1;
+                break;
+    
+    
+            }
+            }
+            if(repeat==0){
+                res.push(x)
+            }
+        }
+        return  res
+        
+        }
+        console.log(prime([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]));
+
+output:
+ [1, 2, 3, 5, 7, 11, 13]
+
+e. Return all the palindromes in an array
+
+var palindrome=function(arr){
+
+    let res=[];
+    for(var x of arr){
+        var repeat=0;
+        var y=x.toString();
+        for(i=0;i<=y.length/2;i++){
+            if(y.charAt(i)==y.charAt(y.length-i-1)){
+                 repeat=1;
+    
+    
+            }
+    
+    
+        }
+        if(repeat==1){
+            res.push(x)
+        }
+        
+    }
+    return res
+        
+        }
+        console.log(palindrome([121,"sai","bob","saias","45154","codekata",1324]));
+output:
+[ 121, 'sai', 'bob', 'saias', '45154' ]
+
+f. Return median of two sorted arrays of the same size
+
+var ar1 = [1, 12, 5, 26, 38];
+var ar2 = [2, 1, 17, 30, 45];
+var n1 = ar1.length;
+var n2 = ar2.length;
+var n=n1;
+(function(){
+    var i = 0; 
+    var j = 0; 
+    var count;
+    var m1 = -1, m2 = -1;
+    for (count = 0; count <= n; count++)
+    {       
+        if (i == n)
+        {
+            m1 = m2;
+            m2 = ar2[0];
+            break;
+        }
+        else if (j == n)
+        {
+            m1 = m2;
+            m2 = ar1[0];
+            break;
+        }
+   
+        if (ar1[i] <= ar2[j])
+        {
+            m1 = m2; 
+            m2 = ar1[i];
+            i++;
+        }
+        else
+        {
+            m1 = m2; 
+            m2 = ar2[j];
+            j++;
+        }
+    }
+
+
+    console.log((m1 + m2)/2)
+})(ar1,ar2,n1)
+
+output:
+11
+
+g. Remove duplicates from an array
+
+var odd=function(arr){
+    var res=[];
+    for(i=0;i<arr.length;i++){
+        var repeat=0;
+        for(j=0;j<arr.length;j++){
+            if(arr[i]==res[j]){
+                repeat=1;
+            }
+        }
+        if(repeat==0){
+            res.push(arr[i])
+        }
+    
+    
+    }
+    console.log(res)
+        }
+        console.log(odd([1,2,3,1,4,2,5,2,1,8,9,5,8]));
+output:
+[1, 2, 3, 4, 5, 8, 9]
+
+h.Rotate an array by k times
+
+var odd=function(arr,k){
+    var res=[];
+    var n=arr.length;
+    k=k%n;
+    for(i=0;i<arr.length;i++){
+        if(i<k){
+        res[i]=arr[n-k+i]
+        }
+        else{
+            res[i]=arr[i-k]
+        }
+    }
+    console.log(res)
+        }
+        console.log(odd([1,2,3,4,5,6],2));
+
+output:
+[ 5, 6, 1, 2, 3, 4 ]
+
+3)Do the below programs in arrow functions.
+
+
+A)Print odd numbers in an array.
+var y=[245,299,343,512,90];
+var res=((arr)=>{
+    var odd=[];
+for (var x of arr){
+
+
+
+
+    if(x%2==1){
+    odd.push(x);
+       }
+    else{
+    continue;
+      }
+    }
+return odd;
+})
+
+console.log(res(y));
+
+Output:
+[ 245, 299, 343 ]
+Execution Time:
+0.067s
+Memory Used:
+8124kb
+
+
+b)Convert all the strings to title caps in a string array.
+var array=["akhil","kasi","sai","srinivas"];
+var res=((array)=>{
+    for(i=-0;i<array.length;i++){
+        var y=array[i].split("")
+        if(y[0].charCodeAt()>=97&&y[0].charCodeAt()<=122){
+            y[0]=String.fromCharCode(y[0].charCodeAt(0)-32)
+            
+            }
+            array[i]=y[0]+array[i].substring(1,y.length)
+    }
+console.log(array.join(" "));
+})
+res(array)
+
+
+Output:
+Akhil Kasi Sai Srinivas
+Execution Time:
+0.066s
+Memory Used:
+8136kb
+
+
+c)Sum of all numbers in an array.
+var arr=[3,4,1,3,2122,36,14];
+var res=((arr)=>{
+    var sum=0;
+for(var x of arr){
+    sum=sum+x
+}
+console.log(sum)
+})
+res(arr);
+
+
+Output:
+2183
+Execution Time:
+0.066s
+Memory Used:
+8100kb
+
+d)Return all the prime numbers in an array.
+ar arr=[17,9,2,4,11];
+
+
+var prime=((arr)=>{
+    var res=[];
+
+
+    for(var x of arr){
+    var repeat=0;
+        for(var i=2;i<=x/2;i++){
+            
+        if(x%i==0){
+            repeat=1;
+            break;
+
+
+        }
+        }
+        if(repeat==0){
+            res.push(x)
+        }
+    }
+    return res;
+
+
+})
+console.log(prime(arr))
+
+var arr=[17,9,4,5,7,1,3,2,4,11];
+
+
+var prime=((arr)=>{
+    var res=[];
+
+
+    for(var x of arr){
+    var repeat=0;
+        for(var i=2;i<=x/2;i++){
+            
+        if(x%i==0){
+            repeat=1;
+            break;
+
+
+        }
+        }
+        if(repeat==0){
+            res.push(x)
+        }
+    }
+    return res;
+
+
+})
+console.log(prime(arr))
+
+Output:
+[ 17, 5, 7, 1, 3, 2, 11 ]
+Execution Time:
+0.067s
+Memory Used:
+8048kb
+
+
+e)Return all the palindromes in an array
+
+var arr=[121,"nirin","bob","nilin","sasisas","guvi",1324];
+
+var palindrome=(()=>{
+    var res=[];
+for(var x of arr){
+    var repeat=0;
+    var y=x.toString();
+    for(i=0;i<=y.length/2;i++){
+        if(y.charAt(i)==y.charAt(y.length-i-1)){
+             repeat=1;
+
+        }
+
+    }
+    if(repeat==1){
+        res.push(x)
+    }
+}
+return res;
+})
+console.log(palindrome(arr));
+
+Output:
+[ 121, 'nirin', 'bob', 'nilin', 'sasisas' ]
+Execution Time:
+0.067s
+Memory Used:
+8116kb
